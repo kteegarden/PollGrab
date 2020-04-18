@@ -23,9 +23,9 @@ def main():
     df14 = get_data.get_data(2019, 14, False)
     df15 = get_data.get_data(2019, 15, False)
     df16 = get_data.get_data(2019, 16, False)
-    df16 = get_data.get_data(2019, 17, True)
+    df17 = get_data.get_data(2019, 17, True)
 
-    df= pd.concat([df1, df2, df3, df4, df5, df6, df7, df8, df9, df10, df11, df12, df13, df14, df15, df16], axis=1)  # this joins all the polls together
+    df= pd.concat([df1, df2, df3, df4, df5, df6, df7, df8, df9, df10, df11, df12, df13, df14, df15, df16, df17], axis=1)  # this joins all the polls together
     print(df)
 
     current_working_directory = os.getcwd()
