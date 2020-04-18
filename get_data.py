@@ -15,7 +15,7 @@ def get_data(year, week, final_poll):
     soup = bs4.BeautifulSoup(website_HTML, 'html.parser')  # plug HTML into Beautiful Soup
 
     table = soup.find_all('table')[0]  # pull the first table on the web page
-    rows = table.find_all('tr')[3:]  # throw out the first three rows (this is unusable data)
+    rows = table.find_all('tr')[1:]  # throw out the first three rows (this is unusable data)
 
     teams = []
     points = []
@@ -27,7 +27,7 @@ def get_data(year, week, final_poll):
         team_points = row.find_all('td')[3].get_text()  # Get text for team points
         points.append(team_points)
 
-    additional_text = soup.find(class_='TableDetails n8 clr-gray-05').get_text()  # Get all the teams also receiving votes
+    additional_text = soup.find(class_='pt4').get_text()  # Get all the teams also receiving votes
     additional_teams, additional_points = parse_end_of_poll_text(additional_text)  # parse these teams
 
     for t in additional_teams:  # add additional teams to list
